@@ -1,0 +1,575 @@
+/* 
+ * Media Queries - Diseño Responsive
+ * Mobile-First Approach
+ * Restaurante - Proyecto Final
+ */
+
+/* ========== TABLET (max-width: 1024px) ========== */
+@media (max-width: 1024px) {
+    
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.75rem;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .about-image .image-placeholder {
+        min-height: 300px;
+    }
+    
+    /* Dishes Grid - 2 columns on tablet */
+    .dishes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Features Grid - 2 columns on tablet */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+    
+    /* Menu Grid - 2 columns on tablet */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Takeaway - 1 column on tablet */
+    .takeaway-info {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    /* Specialties Grid - stays 2 columns on tablet */
+    .specialty-grid {
+        gap: var(--space-lg);
+    }
+    
+    /* Group Menus - Info Grid: 2 columns on tablet */
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* ========== RESERVAS PAGE - TABLET ========== */
+    
+    /* Grid mantiene dos columnas en tablet */
+    .reservation-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .contact-info-container {
+        position: static;
+    }
+}
+
+/* ========== MOBILE (max-width: 768px) ========== */
+@media (max-width: 768px) {
+    
+    /* Typography adjustments */
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.875rem; }
+    h3 { font-size: 1.5rem; }
+    
+    /* Hero Section */
+    .hero {
+        min-height: 400px;
+        padding: var(--space-lg) var(--space-md);
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.125rem;
+    }
+    
+    /* Section padding */
+    section {
+        padding: var(--space-xl) 0;
+    }
+    
+    /* About Section */
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .about-image .image-placeholder {
+        min-height: 250px;
+    }
+    
+    /* Dishes Grid - 1 column on mobile */
+    .dishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Features Grid - 1 column on mobile */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+    }
+    
+    /* CTA Section */
+    .cta h2 {
+        font-size: 1.875rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    /* Buttons */
+    .btn-large {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: 1rem;
+    }
+    
+    /* Menu Page */
+    .menu-intro {
+        padding: var(--space-md) 0;
+    }
+    
+    .intro-text {
+        font-size: 1rem;
+    }
+    
+    .menu-category-title {
+        font-size: 2rem;
+    }
+    
+    /* Menu Grid - 1 column on mobile */
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .menu-item-header .price {
+        margin-top: var(--space-xs);
+    }
+    
+    /* Takeaway Section */
+    .takeaway-icon {
+        font-size: 3rem;
+    }
+    
+    .price-large {
+        font-size: 1.75rem;
+    }
+    
+    /* Specialties Page */
+    .specialties-intro .intro-text {
+        font-size: 1rem;
+    }
+    
+    /* Specialty Grid - 1 column on mobile */
+    .specialty-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specialty-image {
+        height: 280px;
+    }
+    
+    .specialty-image .image-placeholder {
+        font-size: 4.5rem;
+    }
+    
+    .specialty-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .specialty-description {
+        font-size: 0.9375rem;
+    }
+    
+    .cta-specialty h2 {
+        font-size: 1.875rem;
+    }
+    
+    .cta-specialty .cta-text {
+        font-size: 1rem;
+    }
+    
+    /* Group Menus Page */
+    .groups-intro .intro-text {
+        font-size: 1rem;
+    }
+    
+    /* Accordion adjustments */
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+    }
+    
+    .accordion-title h3 {
+        font-size: 1.5rem;
+    }
+    
+    .accordion-price {
+        align-self: flex-start;
+        margin-right: 0;
+        flex-direction: row;
+        align-items: baseline;
+        gap: var(--space-sm);
+    }
+    
+    .accordion-price .price {
+        font-size: 1.75rem;
+    }
+    
+    .accordion-icon {
+        position: absolute;
+        top: var(--space-md);
+        right: var(--space-md);
+    }
+    
+    .accordion-content.active {
+        padding: var(--space-md);
+    }
+    
+    .menu-course h4 {
+        font-size: 1.125rem;
+    }
+    
+    .menu-course li {
+        font-size: 0.9375rem;
+    }
+    
+    /* Info Grid - 1 column on mobile */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-card {
+        padding: var(--space-md);
+    }
+    
+    .info-icon {
+        font-size: 2.5rem;
+    }
+    
+    .cta-groups h2 {
+        font-size: 1.875rem;
+    }
+    
+    .cta-groups .cta-text {
+        font-size: 1rem;
+    }
+    
+    /* ========== RESERVAS PAGE - MOBILE ========== */
+    
+    /* Grid a una sola columna en móvil */
+    .reservation-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    /* Formulario ocupa todo el ancho */
+    .reservation-form {
+        padding: var(--space-lg);
+    }
+    
+    /* Form row también a una columna en móvil */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .reservation-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.75rem;
+    }
+    
+    .cta-reservation h2 {
+        font-size: 1.625rem;
+    }
+}
+
+/* ========== SMALL MOBILE (max-width: 480px) ========== */
+@media (max-width: 480px) {
+    
+    /* Menu Page */
+    .menu-category-title {
+        font-size: 1.75rem;
+    }
+    
+    .menu-item-image {
+        height: 150px;
+    }
+    
+    .menu-item-image .image-placeholder {
+        font-size: 3rem;
+        min-height: 150px;
+    }
+    
+    .menu-item-content {
+        padding: var(--space-sm);
+    }
+    
+    .menu-item-header h3 {
+        font-size: 1.125rem;
+    }
+    
+    .menu-item-header .price {
+        font-size: 1.25rem;
+    }
+    
+    .menu-item-description {
+        font-size: 0.875rem;
+    }
+    
+    /* Takeaway Section */
+    .takeaway-item {
+        padding: var(--space-md);
+    }
+    
+    .takeaway-icon {
+        font-size: 2.5rem;
+    }
+    
+    .price-large {
+        font-size: 1.5rem;
+    }
+    
+    /* Specialties Page */
+    .specialty-image {
+        height: 240px;
+    }
+    
+    .specialty-image .image-placeholder {
+        font-size: 4rem;
+    }
+    
+    .specialty-content {
+        padding: var(--space-md);
+    }
+    
+    .specialty-content h3 {
+        font-size: 1.375rem;
+    }
+    
+    .specialty-description {
+        font-size: 0.875rem;
+    }
+    
+    .detail-item {
+        font-size: 0.8125rem;
+    }
+    
+    .cta-specialty h2 {
+        font-size: 1.625rem;
+    }
+    
+    /* Container padding */
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    /* Hero adjustments */
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    /* Dish cards */
+    .dish-image {
+        height: 180px;
+    }
+    
+    .dish-info {
+        padding: var(--space-sm);
+    }
+    
+    .dish-info h3 {
+        font-size: 1.125rem;
+    }
+    
+    /* Feature icons */
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+    
+    .feature-item {
+        padding: var(--space-sm);
+    }
+    
+    /* Group Menus - Small Mobile */
+    .accordion-header {
+        padding: var(--space-sm);
+    }
+    
+    .accordion-title h3 {
+        font-size: 1.375rem;
+    }
+    
+    .accordion-subtitle {
+        font-size: 0.9375rem;
+    }
+    
+    .accordion-price .price {
+        font-size: 1.5rem;
+    }
+    
+    .accordion-price .price-label {
+        font-size: 0.8125rem;
+    }
+    
+    .accordion-icon {
+        top: var(--space-sm);
+        right: var(--space-sm);
+        font-size: 1.75rem;
+    }
+    
+    .accordion-content.active {
+        padding: var(--space-sm);
+    }
+    
+    .menu-course {
+        margin-bottom: var(--space-md);
+    }
+    
+    .menu-course h4 {
+        font-size: 1rem;
+    }
+    
+    .menu-course li {
+        font-size: 0.875rem;
+    }
+    
+    .menu-notes {
+        padding: var(--space-sm);
+    }
+    
+    .menu-notes p {
+        font-size: 0.875rem;
+    }
+    
+    .info-icon {
+        font-size: 2rem;
+    }
+    
+    .info-card h4 {
+        font-size: 1.125rem;
+    }
+    
+    .info-card p {
+        font-size: 0.875rem;
+    }
+    
+    .cta-groups h2 {
+        font-size: 1.625rem;
+    }
+    
+    .cta-groups .cta-text {
+        font-size: 0.9375rem;
+    }
+    
+    /* ========== RESERVAS PAGE - SMALL MOBILE ========== */
+    
+    /* Reducir padding en móvil pequeño */
+    .reservation-form {
+        padding: var(--space-md);
+    }
+    
+    .contact-card {
+        padding: var(--space-md);
+    }
+    
+    .reservation-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-card h3 {
+        font-size: 1.125rem;
+    }
+    
+    .cta-reservation h2 {
+        font-size: 1.5rem;
+    }
+    
+    .form-input {
+        font-size: 0.9375rem;
+    }
+    
+    /* ========== FOOTER - SMALL MOBILE ========== */
+    
+    .footer {
+        padding: 32px 0 16px;
+    }
+    
+    .footer-content {
+        gap: 24px;
+    }
+    
+    .social-links {
+        gap: 16px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-links a {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .footer-social h3 {
+        font-size: 1rem;
+    }
+    
+    .legal-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .legal-links .separator {
+        display: none;
+    }
+    
+    /* ========== LEGAL PAGES - SMALL MOBILE ========== */
+    
+    .legal-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .legal-wrapper h2 {
+        font-size: 1.5rem;
+    }
+    
+    .legal-content {
+        padding: 32px 0;
+    }
+    
+    /* ========== COOKIE BANNER - SMALL MOBILE ========== */
+    
+    .cookie-content {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .cookie-actions {
+        flex-direction: column;
+    }
+    
+    .cookie-actions .btn {
+        width: 100%;
+    }
+}

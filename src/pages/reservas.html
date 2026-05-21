@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante - Reservas</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- Navigation Component -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Reservar Mesa</h1>
+            <p>Asegura tu experiencia culinaria</p>
+        </div>
+    </section>
+
+    <!-- Reservation Introduction -->
+    <section class="reservation-intro">
+        <div class="container">
+            <p class="intro-text">
+                Reserve su mesa en nuestro restaurante y viva una experiencia gastronómica inolvidable. 
+                Complete el formulario a continuación y nos pondremos en contacto con usted para confirmar su reserva. 
+                Para grupos de más de 10 personas, por favor consulte nuestros <a href="menu-grupos.html">Menús para Grupos</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reservation Form & Contact Section -->
+    <section class="reservation-section">
+        <div class="container">
+            <div class="reservation-grid">
+                
+                <!-- Formulario de Reserva -->
+                <div class="reservation-form-container">
+                    <h2>Formulario de Reserva</h2>
+                    
+                    <!-- Mensaje de éxito (oculto por defecto) -->
+                    <div id="success-message" class="message success-message" style="display: none;">
+                        <p><strong>¡Reserva enviada con éxito! ✅</strong></p>
+                        <p>Hemos recibido su solicitud de reserva. Nos pondremos en contacto con usted en breve para confirmar.</p>
+                    </div>
+                    
+                    <!-- Formulario -->
+                    <form id="reservation-form" 
+                          class="reservation-form" 
+                          action="https://formspree.io/f/xbdboage" 
+                          method="POST"
+                          novalidate>
+                        
+                        <!-- FormSpree Hidden Fields -->
+                        <input type="hidden" name="_subject" value="Nueva Reserva - Restaurante">
+                        <input type="hidden" name="_next" value="/src/pages/reservas.html?success=true">
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                        
+                        <!-- Campo: Nombre Completo -->
+                        <div class="form-group">
+                            <label for="name">Nombre Completo <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                class="form-input"
+                                placeholder="Ej: Juan García López"
+                                required
+                                aria-required="true"
+                                aria-describedby="name-error"
+                            >
+                            <span id="name-error" class="error-message" role="alert"></span>
+                        </div>
+
+                        <!-- Campo: Email -->
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico <span class="required">*</span></label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input"
+                                placeholder="Ej: juan.garcia@email.com"
+                                required
+                                aria-required="true"
+                                aria-describedby="email-error"
+                            >
+                            <span id="email-error" class="error-message" role="alert"></span>
+                        </div>
+
+                        <!-- Campo: Teléfono -->
+                        <div class="form-group">
+                            <label for="phone">Teléfono <span class="required">*</span></label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input"
+                                placeholder="Ej: 612 345 678"
+                                required
+                                aria-required="true"
+                                aria-describedby="phone-error"
+                            >
+                            <span id="phone-error" class="error-message" role="alert"></span>
+                        </div>
+
+                        <!-- Grid de dos columnas para fecha y hora -->
+                        <div class="form-row">
+                            <!-- Campo: Fecha -->
+                            <div class="form-group">
+                                <label for="date">Fecha de Reserva <span class="required">*</span></label>
+                                <input 
+                                    type="date" 
+                                    id="date" 
+                                    name="date" 
+                                    class="form-input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="date-error"
+                                >
+                                <span id="date-error" class="error-message" role="alert"></span>
+                            </div>
+
+                            <!-- Campo: Hora -->
+                            <div class="form-group">
+                                <label for="time">Hora <span class="required">*</span></label>
+                                <select 
+                                    id="time" 
+                                    name="time" 
+                                    class="form-input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="time-error"
+                                >
+                                    <option value="">Seleccione hora</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="20:00">20:00</option>
+                                    <option value="20:30">20:30</option>
+                                    <option value="21:00">21:00</option>
+                                    <option value="21:30">21:30</option>
+                                    <option value="22:00">22:00</option>
+                                    <option value="22:30">22:30</option>
+                                </select>
+                                <span id="time-error" class="error-message" role="alert"></span>
+                            </div>
+                        </div>
+
+                        <!-- Campo: Número de Personas -->
+                        <div class="form-group">
+                            <label for="guests">Número de Personas <span class="required">*</span></label>
+                            <input 
+                                type="number" 
+                                id="guests" 
+                                name="guests" 
+                                class="form-input"
+                                placeholder="Ej: 2"
+                                min="1"
+                                max="10"
+                                required
+                                aria-required="true"
+                                aria-describedby="guests-error"
+                            >
+                            <small class="form-help">Para grupos de más de 10 personas, consulte nuestros menús para grupos</small>
+                            <span id="guests-error" class="error-message" role="alert"></span>
+                        </div>
+
+                        <!-- Campo: Mensaje Especial (Opcional) -->
+                        <div class="form-group">
+                            <label for="message">Solicitudes Especiales (Opcional)</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                class="form-input form-textarea"
+                                rows="4"
+                                placeholder="Ej: Alergias alimentarias, celebración especial, preferencias de mesa..."
+                                aria-describedby="message-help"
+                            ></textarea>
+                            <small id="message-help" class="form-help">Indíquenos cualquier requerimiento especial que deba conocer</small>
+                        </div>
+
+                        <!-- Botón de Envío -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large">
+                                Enviar Reserva
+                            </button>
+                        </div>
+
+                        <p class="form-note">
+                            <span class="required">*</span> Campos obligatorios
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Información de Contacto -->
+                <div class="contact-info-container">
+                    <h2>Información de Contacto</h2>
+                    
+                    <!-- Horarios -->
+                    <div class="contact-card">
+                        <h3>⏰ Horarios</h3>
+                        <div class="contact-details">
+                            <p><strong>Comidas:</strong></p>
+                            <p>Martes a Domingo: 13:00 - 16:00</p>
+                            <p><strong>Cenas:</strong></p>
+                            <p>Martes a Domingo: 20:00 - 23:00</p>
+                            <p class="closed-day"><strong>Lunes:</strong> Cerrado</p>
+                        </div>
+                    </div>
+
+                    <!-- Dirección -->
+                    <div class="contact-card">
+                        <h3>📍 Ubicación</h3>
+                        <div class="contact-details">
+                            <p><strong>Restaurante</strong></p>
+                            <p>Calle de la Gastronomía, 25</p>
+                            <p>28001 Madrid, España</p>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono y Email -->
+                    <div class="contact-card">
+                        <h3>📞 Contacto</h3>
+                        <div class="contact-details">
+                            <p><strong>Teléfono:</strong></p>
+                            <p><a href="tel:+34912345678">+34 91 234 56 78</a></p>
+                            <p><strong>Email:</strong></p>
+                            <p><a href="mailto:reservas@restaurante.com">reservas@restaurante.com</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Notas Importantes -->
+                    <div class="contact-card important-notes">
+                        <h3>ℹ️ Información Importante</h3>
+                        <ul class="notes-list">
+                            <li>Las reservas se confirman en un plazo de 24 horas</li>
+                            <li>Para grupos de más de 10 personas, se requiere menú cerrado</li>
+                            <li>Cancelaciones gratuitas hasta 24h antes de la reserva</li>
+                            <li>Por favor, comunique alergias o intolerancias alimentarias</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-reservation">
+        <div class="container">
+            <h2>¿Prefieres llamarnos?</h2>
+            <p class="cta-text">
+                Nuestro equipo está disponible para atender su reserva por teléfono durante el horario de atención
+            </p>
+            <a href="tel:+34912345678" class="btn btn-primary btn-large">
+                Llamar Ahora: +34 91 234 56 78
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>
+                🍪 Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación. 
+                Al continuar navegando aceptas nuestra 
+                <a href="/src/pages/politica-cookies.html">Política de Cookies</a>.
+            </p>
+            <div class="cookie-actions">
+                <button id="cookie-accept" class="btn btn-primary">Aceptar</button>
+                <button id="cookie-reject" class="btn btn-outline">Rechazar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/reservas.js"></script>
+    <script src="../js/cookie-consent.js"></script>
+</body>
+</html>
