@@ -32,13 +32,60 @@ async function loadComponents() {
         const footerHTML = await footerResponse.text();
         document.getElementById('footer-placeholder').innerHTML = footerHTML;
         
-        // After components are loaded, initialize functionality
+        // After components are loaded, fix navbar paths and initialize functionality
+        fixNavbarPaths();
+        fixFooterPaths();
         initializeNavbar();
         highlightActivePage();
         
     } catch (error) {
         console.error('Error loading components:', error);
     }
+}
+
+/**
+ * Fix navbar paths based on current page location
+ */
+function fixNavbarPaths() {
+    // Detect if we're on index.html or in pages/ subdirectory
+    const currentPath = window.location.pathname;
+    const isInPages = currentPath.includes('/pages/');
+    
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        const page = link.getAttribute('data-page');
+        
+        if (page === 'index') {
+            // Link to index.html
+            link.setAttribute('href', isInPages ? '../index.html' : 'index.html');
+        } else {
+            // Link to pages/*.html
+            link.setAttribute('href', isInPages ? `${page}.html` : `pages/${page}.html`);
+        }
+    });
+}
+
+/**
+ * Fix footer paths based on current page location
+ */
+function fixFooterPaths() {
+    // Detect if we're on index.html or in pages/ subdirectory
+    const currentPath = window.location.pathname;
+    const isInPages = currentPath.includes('/pages/');
+    
+    // Get all footer legal links
+    const footerLinks = document.querySelectorAll('.legal-links a');
+    
+    footerLinks.forEach(link => {
+        const page = link.getAttribute('data-page');
+        
+        if (page) {
+            // All legal pages are in pages/ subdirectory
+            link.setAttribute('href', isInPages ? `${page}.html` : `pages/${page}.html`);
+        }
+    });
 }
 
 /**
